@@ -1,0 +1,4 @@
+#write #write-content input,
+#write #write-content textarea{
+  border: 1px solid #ccc;
+}

@@ -1,0 +1,41 @@
+<ion-view id="write" view-title="write" cache-view="false">
+  <!--头部搜索栏-->
+  <div id="headerBar" class="headerBar">
+
+  </div>
+  <ion-content id="write-content" class="scroll-content" scroll="false">
+    <form action="/publish/article" method="post" id="article_form">
+      <div class="aw-mod aw-mod-publish">
+        <div class="mod-body">
+          <h3>文章标题:</h3>
+          <!-- 文章标题 -->
+          <div class="aw-publish-title active">
+            <input type="text" name="title" id="title" class="form-control"/>
+          </div>
+          <!-- end 文章标题 -->
+
+          <h3>文章内容:</h3>
+          <div class="aw-mod aw-editor-box">
+            <div class="mod-head">
+              <div class="wmd-panel">
+                <div id="wmd-button-bar"></div>
+                      <textarea class="wmd-input form-control autosize" id="wmd-input" rows="15"
+                                name="content"></textarea>
+              </div>
+            </div>
+            <div class="mod-body">
+              <p class="text-color-999"><span class="pull-right" id="question_detail_message">&nbsp;</span>
+              </p>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="mod-footer clearfix">
+          <input type="submit" class="btn btn-large btn-success btn-publish-submit" value="确认发起">
+        </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
+

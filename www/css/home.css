@@ -1,0 +1,21 @@
+#home .bar-header {
+  padding: 0;
+  background-color: rgba(0,0,0,0.5);
+}
+#home .bar-header img {
+  /*margin: 0 auto;*/
+  margin-left: 10px;
+}
+
+#home .bar-header button{
+  /*display: inline-block;*/
+  /*float: right;*/
+  /*margin-right: 10px;*/
+  position: relative;
+  left: 200px;
+  background-color: transparent;
+}
+#home .has-header{
+  position: relative;
+  top:44px;
+}

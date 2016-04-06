@@ -1,0 +1,43 @@
+<ion-view id="register" view-title="register" cache-view="false">
+  <!--头部搜索栏-->
+  <div class="bar bar-header bar-dark">
+    <img src="img/logo.svg" alt="nodejs" width="90px" height="40px">
+    <button class="button button-balanced ">登录</button>
+  </div>
+
+  <ion-content class="has-header">
+
+    <form  id="register_form">
+      <table>
+        <tr>
+          <td>  <label for="">用户名</label></td>
+          <td><input  type="text" name="username" /></td>
+        </tr>
+        <tr>
+          <td> <label for="">邮 箱</label></td>
+          <td> <input  type="email"  name="email"/></td>
+        </tr>
+        <tr>
+          <td> <label for="">密 码</label></td>
+          <td><input  type="password" name="password" /></td>
+        </tr>
+        <tr>
+          <td> <label for="">确认密码</label></td>
+          <td><input  type="password" name="confirmPassword" /></td>
+        </tr>
+
+
+      </table>
+
+          <label><input type="checkbox" checked="checked" value="agree"/> 我同意</label> <a
+          href="javascript:;" class="aw-agreement-btn">用户协议</a>
+          <a href="/login" class="pull-right">已有账号?</a><br>
+          <button id="btn" class="btn btn-large btn-blue btn-block">
+            注册
+          </button>
+    </form>
+  </ion-content>
+
+
+</ion-view>
+

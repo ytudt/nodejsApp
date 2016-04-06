@@ -1,0 +1,34 @@
+#register .bar-header {
+  padding: 0;
+  background-color: rgba(0,0,0,0.5);
+}
+#register .bar-header img {
+  /*margin: 0 auto;*/
+  margin-left: 10px;
+}
+
+#register .bar-header button{
+  /*display: inline-block;*/
+  /*float: right;*/
+  /*margin-right: 10px;*/
+  position: relative;
+  left: 200px;
+  background-color: transparent;
+}
+#register .has-header{
+  position: relative;
+  top:44px;
+}
+
+#register tr {
+  margin: 10px;
+}
+#register  label {
+  display: block;
+  margin: 10px;
+}
+#register input{
+  display: inline-block;
+  border: 1px solid #ccc;
+  margin: 10px;
+}

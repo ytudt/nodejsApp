@@ -1,0 +1,114 @@
+#guideSlide .slider1
+{
+  background-color: #D74B28;
+  text-align: center;
+
+
+}
+
+#guideSlide .slider1 img{
+  margin-top: 100px;
+  width: 80%;
+  -webkit-transform: translate(0, -300px);
+  transform: translate(0, -300px);
+
+}
+#guideSlide .slider1 .imgAnimate{
+  -webkit-animation: run 2s forwards 1s;
+  animation: run 2s forwards 1s;
+}
+#guideSlide .slider1 h1,
+#guideSlide .slider1 p{
+  color: #fff;
+  text-shadow:  5px 5px 5px #000 ;
+
+}
+
+
+
+@-webkit-keyframes run {
+  0% {
+    transform: translate(0,-300px);
+    -webkit-transform: translate(0,-300px);
+  }
+
+  70% {
+    transform: translate(0,100px);
+    -webkit-transform: translate(0,100px);
+  }
+
+  85% {
+    transform: translate(0,-20px) ;
+    -webkit-transform: translate(0,-20px) ;
+    animation-timing-function: ease-in;
+  }
+
+  90% {
+    transform: translate(0, 10px) ;
+    -webkit-transform: translate(0, 10px) ;
+    transform-origin: right bottom;
+  }
+  100% {
+    transform: translate(0, 0) ;
+    -webkit-transform: translate(0, 0) ;
+    transform-origin: right bottom;
+  }
+}
+
+/*@keyframes run {*/
+  /*0% {*/
+    /*transform: translate(0,-300px);*/
+    /*-webkit-transform: translate(0,-300px);*/
+  /*}*/
+
+  /*70% {*/
+    /*transform: translate(0,100px);*/
+    /*-webkit-transform: translate(0,100px);*/
+  /*}*/
+
+  /*85% {*/
+    /*transform: translate(0,-20px) ;*/
+    /*-webkit-transform: translate(0,-20px) ;*/
+    /*animation-timing-function: ease-in;*/
+  /*}*/
+
+  /*90% {*/
+    /*transform: translate(0, 10px) ;*/
+    /*-webkit-transform: translate(0, 10px) ;*/
+    /*transform-origin: right bottom;*/
+  /*}*/
+  /*100% {*/
+    /*transform: translate(0, 0) ;*/
+    /*-webkit-transform: translate(0, 0) ;*/
+    /*transform-origin: right bottom;*/
+  /*}*/
+/*}*/
+
+#guideSlide .slider2 {
+  text-align: center;
+  background-color: #f548f9;
+
+}
+#guideSlide .slider2 h3{
+  color: #fff;
+}
+
+
+
+#guideSlide .slider3 {
+
+  background: url("../img/enjoy.jpg") no-repeat;
+  background-size: contain;
+
+}
+#guideSlide .slider3 #close {
+  position: absolute;
+  background-color: green;
+  width: 160px;
+  left: 50%;
+  margin-left: -80px;
+  bottom: 15%;
+  padding: 10px;
+  color: #fff;
+  border-color: #fff;
+}

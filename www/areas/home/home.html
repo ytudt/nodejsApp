@@ -1,0 +1,26 @@
+<ion-view id="home" view-title="home" cache-view="false">
+  <!--头部搜索栏-->
+
+  <div class="bar bar-header bar-dark">
+    <img src="img/logo.svg" alt="nodejs" width="90px" height="40px">
+    <button class="button button-balanced ">登录</button>
+  </div>
+  <!--<ion-list class="has-header">-->
+    <!--<ion-item ng-repeat="item in items">-->
+      <!--&lt;!&ndash;{{item.articleTitle}}&ndash;&gt;-->
+      <!--<a href="javascript"><img src="{{item.imgSrc}}" alt=""></a>-->
+      <!--<span>111</span>-->
+      <!--<a ui-sref="article({articleNumber:{{item.id}}})" >{{item.title}}</a>-->
+      <!--<span id="writeTime">{{item.time}}</span>-->
+    <!--</ion-item>-->
+  <!--</ion-list>-->
+  <ul class="has-header">
+    <li ng-repeat="item in items">
+      <!--{{item.articleTitle}}-->
+      <a href="javascript"><img src="{{item.imgSrc}}" alt=""></a>
+      <a ui-sref="article({articleNumber:{{item.id}}})" >{{item.title}}</a>
+      <span id="writeTime">{{item.time}}</span>
+    </li>
+  </ul>
+</ion-view>
+
