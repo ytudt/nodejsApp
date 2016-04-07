@@ -1,10 +1,62 @@
 <ion-view id="set" view-title="set" cache-view="false">
-  <form >
-    <div class="form-group" >
-      <label for="avatar" class="control-label">请选择头像:</label>
-      <input id="fileToUpload" type="file" class="form-control" id="avatar">
-      <button type="submit" class="btn btn-primary" id="btn_upload">点击上传</button>
+  <!--<form >-->
+    <!--<div class="form-group" >-->
+      <!--<label for="avatar" class="control-label">请选择头像:</label>-->
+      <!--<input id="fileToUpload" type="file" class="form-control" id="avatar">-->
+      <!--<button type="submit" class="btn btn-primary" id="btn_upload">点击上传</button>-->
+    <!--</div>-->
+  <!--</form>-->
+  <!--<form action= "http://192.168.3.90" method="POST" enctype="multipart/form-data" target="upload">-->
+
+    <!--<input type="file" name="upload_file" />-->
+
+    <!--<input type="text" name="tmpurl" value="http://www.a.com/tmp.html" style="display:none" /> ！-->
+
+
+    <!--<input type="submit" value="开始上传" />-->
+
+  <!--</form>-->
+
+  <!--<iframe name="upload" style="display:none"></iframe>-->
+  <ion-header-bar class="bar-positive">
+    <h1 class="title">账户</h1>
+  </ion-header-bar>
+  <ion-content scroll="false">
+    <div class=".light-bg padding-top padding-bottom">
+      <label id="info" class=" item item-icon-right" ng-click="func_showAction()">
+        <img  id="touxiang" src="img/details/detail01.jpg" >
+        <span>admin</span>
+        <i class="icon ion-ios-arrow-right"></i>
+      </label>
     </div>
-  </form>
+    <div class="list">
+      <div class="item .light-bg padding-top item-icon-right">
+        <label>通用
+          <i class="icon ion-ios-arrow-right"></i>
+        </label>
+      </div>
+      <div class="item .light-bg padding-top item-icon-right">
+        <label>资料设置
+          <i class="icon ion-ios-arrow-right"></i>
+        </label>
+      </div>
+      <div class="item .light-bg padding-top item-icon-right">
+        <label>关于我们
+          <i class="icon ion-ios-arrow-right"></i>
+        </label>
+      </div>
+      <div class="item .light-bg padding-top item-icon-right" ng-click="func_callPhone('88889999')">
+        <label>联系我们</label>
+        <a class="telephone" href="tel:88889999">88889999</a>
+      </div>
+      <div class="item .light-bg padding-top item-icon-right">
+        <label>版本信息</label>
+        <span class="version">V1.0</span>
+      </div>
+    </div>
+    <div class="padding-top">
+      <button class="button button-block button-assertive " ng-click="func_exitApp()">退出登录</button>
+    </div>
+  </ion-content>
 </ion-view>
 

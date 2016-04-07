@@ -3,17 +3,19 @@
  */
 "use strict";
 const db=require('./db');
-const express=require('express')
+const express=require('express');
+const moment = require('moment');
+moment.locale('zh-cn');
 exports.showHome=function(req, res, next){
 
-  db.query(`SELECT * FROM articles`,
+  db.query(`SELECT * FROM articles ORDER BY time DESC `,
     function (err, result) {
 
 
     if (err) {
       throw err;
     }
-
+  result.map(a=>a.time = moment(a.time).startOf('second').fromNow());
   if (req.query && req.query.callback) {
     console.log(req.query.callback)
     var str =  req.query.callback + '(' + JSON.stringify(result) + ')';//jsonp
@@ -38,6 +40,39 @@ exports.showArticle=function(req, res, next){
         console.log(req.query.id)
         var str =  req.query.callback + '(' + JSON.stringify(result) + ')';//jsonp
          console.log(str);
+        res.end(str);
+      }
+
+    });
+}
+
+exports.doWrite=function(req,res,next){
+  let title=req.query.title;
+  let content=req.query.content;
+  //let date=new Date();
+  let time = moment().format('YYYY-MM-DD HH:mm:ss');
+
+  db.query(`INSERT INTO articles VALUES(NULL,?,?,?,1)`
+    , [ title, content, time]
+    , function (err, result) {
+      console.log(1);
+      let registerMes={};
+      if (err) {
+        registerMes={
+          code:0,
+          mes:'err'
+        }
+        var str =  req.query.callback + '(' + JSON.stringify(registerMes) + ')';//jsonp
+        res.end(str);
+        throw err;
+      }
+
+      if (req.query && req.query.callback) {
+        registerMes={
+          code:1,
+          mes:'success'
+        }
+        var str =  req.query.callback + '(' + JSON.stringify(registerMes) + ')';//jsonp
         res.end(str);
       }
 

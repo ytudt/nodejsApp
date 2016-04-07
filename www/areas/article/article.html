@@ -1,5 +1,14 @@
-<ion-view id="goodsList" view-title="列表页面" hide-back-button="true" cache-view="false">
-<h2>{{article.title}}</h2>
-  <p>{{article.content}}</p>
+<ion-view id="article" view-title="列表页面" hide-back-button="true" cache-view="false">
+
+  <div class="bar bar-header bar-dark">
+    <img src="img/logo.svg" alt="nodejs" width="90px" height="40px">
+    <a class="button button-balanced goHome"  href="#/tab/home" >首页</a>
+    <button class="button button-balanced addCollect" ng-click="addCollect ()">加入收藏</button>
+  </div>
+  <div class="has-header">
+    <h2>{{article.title}}</h2>
+    <p>{{article.content}}</p>
+  </div>
+
 </ion-view>
 

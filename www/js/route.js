@@ -7,9 +7,20 @@
  */
 
 angular.module('route', ['guide.route','tab_route','article.route','register.route'])
-  .config(function($stateProvider, $urlRouterProvider) {
 
-    // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/tab/write');
+  .config(function($stateProvider, $urlRouterProvider) {
+    //localStorage.setItem('isFirst', '')
+    if (window.localStorage) {
+      if( !localStorage.getItem('isFirst')){
+        localStorage.setItem('isFirst', true);
+        $urlRouterProvider.otherwise('/guide');
+      }else {
+        localStorage.setItem('isFirst', false);
+        $urlRouterProvider.otherwise('/tab/home');
+
+      }
+
+    }
+
 
   });

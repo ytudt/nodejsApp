@@ -21,6 +21,7 @@ const user= require('./models/user');
 
 //var data = {'name': 'jifeng', 'company': 'taobao'};
 router.get('/', function(req,res,next){
+  //console.log(1);
 
   let parameter=req.query.text;
   //console.log(parameter);
@@ -33,14 +34,23 @@ router.get('/', function(req,res,next){
       break;
     case 'doRegister' :
       user.doRgister(req, res, next);
-      console.log(req.query);
+      //console.log(req.query);
       break;
+    case 'doLogin':
+      user.doLogin(req, res, next);
+      break;
+    case 'doWrite':
+      console.log(1);
+      articleController.doWrite(req, res, next);
+      break;
+
+
   }
 
 }); // 获取首页
 router.post('', function(req,res,next) {
 
-  console.log(req.body);
+  console.log("post请求来了");
   var form = new formidable.IncomingForm();
   form.parse(req, function (err, fields, files) {
 
@@ -51,12 +61,20 @@ router.post('', function(req,res,next) {
       });
     }
 
-    //let avatar = files.avatar;
-    //let tmpPath = avatar.path;
-    //let size = avatar.size;
-    //let name = avatar.name;
+    let avatar = files.upload_file;
+    let tmpPath = avatar.path;
+    let size = avatar.size;
+    let name = avatar.name;
+    let random=Math.floor(Math.random()*1000).toString()+(+new Date());
+    console.log(random);
+    console.log(+new Date());
+    name=random+name;
+    let newPath=path.join(__dirname,'images',name);
+    console.log(newPath);
+    fs.rename(tmpPath,newPath,function(){
+    console.log("保存成功");
+  })
 
-    //let newPath = tmpPath + path.extname(name);
 
     //  fs.rename(tmpPath, newPath, function () {
     //

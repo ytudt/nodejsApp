@@ -3,11 +3,9 @@ angular.module('article.service', [])
   .factory('ArticleFty', function($http,$q,GlobalVariable) {
 
     return {
-
       refreshGoodsList: function (message) {
         var obj_goodsListData = []
         var deferred = $q.defer();
-        console.log(message);
         var url=GlobalVariable.SERVER_PATH+"?text=showArticle&id="+parseInt(message)+"&callback=JSON_CALLBACK";
         $http.jsonp(url).success(function(data,status,headers,config){
 

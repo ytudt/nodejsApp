@@ -2,3 +2,15 @@
 #write #write-content textarea{
   border: 1px solid #ccc;
 }
+#write {
+  /*text-align: center;*/
+}
+#write input[type=text]{
+  margin-left: 10px;
+}
+
+#write  textarea{
+  width: 95%;
+  margin: 0 auto;
+}
+

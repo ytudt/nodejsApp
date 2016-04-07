@@ -1,28 +1,26 @@
-
+"use strict";
 
 angular.module('register.controller',['register.service'])
 .controller('RegisterCtrl',function($scope,$window,$state,RegisterFty){
 
   var btn = document.getElementById('btn');
-  //console.log(2);
+
 
   btn.onclick = function () {
 
     var $form = $('#register_form');
-
-    let message=$form.serialize();
-
+    var message=$form.serialize();
+    console.log(message);
     //var message=formData;
     var promise = RegisterFty.refreshGoodsList(message);
     promise.then(
       function (result) {
-        console.log(result);
+        //console.log(result);
         if(result!=null){
           if(result.code===1){
             $state.go('tab.home');
           }
-          //$scope.article=result[0];
-
+          $scope.article=result[0];
 
         }else{
           $scope.pms_isMoreItemsAvailable=false;
@@ -32,8 +30,8 @@ angular.module('register.controller',['register.service'])
         alert(reason);
       }
     ).finally(function () {
-      // 停止广播ion-refresher
-      //$scope.$broadcast('scroll.refreshComplete');
+       //停止广播ion-refresher
+      $scope.$broadcast('scroll.refreshComplete');
     });
 
 

@@ -1,0 +1,29 @@
+#article .bar-header {
+  padding: 0;
+  background-color: rgba(0,0,0,0.5);
+}
+#article .bar-header img {
+  /*margin: 0 auto;*/
+  margin-left: 10px;
+}
+
+#article .bar-header button,
+#article .bar-header .goHome
+{
+  /*display: inline-block;*/
+  /*float: right;*/
+  /*margin-right: 10px;*/
+  position: relative;
+  left: 135px;
+  top:0;
+  bottom: 0;
+  line-height: 44px;
+  background-color: transparent;
+}
+/*#article .bar-header .addCollect:hover{*/
+  /*background-color: #ccc;*/
+/*}*/
+#article .has-header{
+  position: relative;
+  top:44px;
+}

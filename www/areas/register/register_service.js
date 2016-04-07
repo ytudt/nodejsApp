@@ -8,7 +8,7 @@ angular.module('register.service',[])
     refreshGoodsList: function (message) {
       var obj_goodsListData = [];
       var deferred = $q.defer();
-      //console.log(message);
+
       var url=GlobalVariable.SERVER_PATH+"?text=doRegister&"+message+"&callback=JSON_CALLBACK";
       $http.jsonp(url).success(function(data,status,headers,config){
 
@@ -18,13 +18,10 @@ angular.module('register.service',[])
 
       })
       return deferred.promise;
-      //console.log(obj_goodsListData);
 
-
-
-      //console.log(1);
 
     },
   };
+
 
 })

@@ -38,3 +38,32 @@ exports.doRgister=function(req, res, next){
 
     });
 }
+
+exports.doLogin=function(req, res, next){
+  //console.log(1);
+  db.query('SELECT * FROM users WHERE username=?'
+    , [ req.query.username]
+    , function (err, result) {
+      //console.log(result[0]);
+      let registerMes={};
+      if (err) {
+        registerMes={
+          code:0,
+          mes:'err'
+        }
+        var str =  req.query.callback + '(' + JSON.stringify(registerMes) + ')';//jsonp
+        res.end(str);
+        throw err;
+      }
+
+      if (req.query && req.query.callback&&req.query.password===result[0].password) {
+        registerMes={
+          code:1,
+          mes:'success'
+        }
+        var str =  req.query.callback + '(' + JSON.stringify(registerMes) + ')';//jsonp
+        res.end(str);
+      }
+
+    });
+}

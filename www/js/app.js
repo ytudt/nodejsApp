@@ -1,7 +1,9 @@
 // 入口文件
-angular.module('starter', ['ionic','route','global','config'])
+var nodeMessage={};
+angular.module('starter', ['ionic','route','global','config','indexdb'])
 
   .run(function($ionicPlatform) {
+
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)

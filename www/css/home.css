@@ -12,10 +12,35 @@
   /*float: right;*/
   /*margin-right: 10px;*/
   position: relative;
-  left: 200px;
+  left: 135px;
+  top:0;
+  bottom: 0;
   background-color: transparent;
+}
+#home .collecNum{
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  border-radius: 8px 8px 8px 0 ;
+  background-color: red;
+  color: #fff;
+  position: relative;
+  top:6px;
+  left: 128px;
 }
 #home .has-header{
   position: relative;
   top:44px;
+}
+#home .articleLis{
+  margin-top: 20px;
+  border-bottom: 1px solid #ccc;
+}
+#home .writeTime{
+  float: right;
+  margin-right: 5px;
+}
+#home .articleTitle{
+  margin-left: 5px;
+  text-decoration: none;
 }
