@@ -8,11 +8,14 @@
 }
 
 #home .bar-header button{
-  /*display: inline-block;*/
-  /*float: right;*/
+  display: inline-block;
+  float: right;
   /*margin-right: 10px;*/
   position: relative;
-  left: 56px;
+  left: 30px;
+  /*right: -80px;*/
+  padding: 0 5px;
+
   top:0;
   bottom: 0;
   background-color: transparent;

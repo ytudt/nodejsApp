@@ -17,7 +17,7 @@ exports.showHome=function(req, res, next){
     }
   result.map(a=>a.time = moment(a.time).startOf('second').fromNow());
   if (req.query && req.query.callback) {
-    console.log(req.query.callback)
+    //console.log(req.query.callback)
     var str =  req.query.callback + '(' + JSON.stringify(result) + ')';//jsonp
     // console.log(str);
     res.end(str);
@@ -39,7 +39,7 @@ exports.showArticle=function(req, res, next){
       if (req.query && req.query.callback) {
         console.log(req.query.id)
         var str =  req.query.callback + '(' + JSON.stringify(result) + ')';//jsonp
-         console.log(str);
+         //console.log(str);
         res.end(str);
       }
 
@@ -55,7 +55,7 @@ exports.doWrite=function(req,res,next){
   db.query(`INSERT INTO articles VALUES(NULL,?,?,?,1)`
     , [ title, content, time]
     , function (err, result) {
-      console.log(1);
+      //console.log(1);
       let registerMes={};
       if (err) {
         registerMes={

@@ -48,9 +48,9 @@ exports.doLogin=function(req, res, next){
   db.query('SELECT * FROM users WHERE username=?'
     , [ username]
     , function (err, result) {
-      //console.log(result);
+      console.log(result);
       let registerMes={};
-      if (err||!result) {
+      if (err||!result[0]) {
         registerMes={
           code:0,
           mes:'err'
@@ -58,7 +58,7 @@ exports.doLogin=function(req, res, next){
         var str =  req.query.callback + '(' + JSON.stringify(registerMes) + ')';//jsonp
         res.end(str);
         return ;
-        throw err;
+        //throw err;
       }
       //console.log(password);
       //console.log(result);

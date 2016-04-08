@@ -6,6 +6,7 @@ angular.module('home.controller',['home.service'])
 
   //首先读取localstroge看是否登录
   $scope.items=[];
+  $scope.username=localStorage.getItem('username')
   if(localStorage.getItem('isLogin')==='true'){
     $scope.isLogin=true;
   }else {
@@ -73,16 +74,19 @@ angular.module('home.controller',['home.service'])
             var username = $('#logInUsename').val();
             var password= $('form input[type=password]').val();
             var message='username='+username+'&password='+password;
-            $('#test').html(username);
+            //$('#test').html(username);
+            //$scope.usename=username;
+
             var promise = HomeFty.doLogin(message);
             promise.then(
               function (result) {
                 if(result!=null){
                   if(result.code===1){
                     //console.log('登录成功');
+                    $scope.username=username;
                     $scope.isLogin=true;
                     localStorage.setItem('isLogin',true);
-
+                    localStorage.setItem('username', username);
                     $state.go('tab.home');
                   }
                   $scope.article=result[0];
@@ -133,6 +137,7 @@ angular.module('home.controller',['home.service'])
   $scope.exit=function(){
     //GlobalVariable.ISLOGIN=false;
     localStorage.setItem('isLogin', '');
+    localStorage.setItem('username', '');
     $scope.isLogin=false;
 
   }

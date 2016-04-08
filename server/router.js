@@ -41,7 +41,7 @@ router.get('/', function(req,res,next){
       user.doLogin(req, res, next);
       break;
     case 'doWrite':
-      console.log(1);
+      //console.log(1);
       articleController.doWrite(req, res, next);
       break;
 
@@ -51,7 +51,7 @@ router.get('/', function(req,res,next){
 }); // 获取首页
 router.post('', function(req,res,next) {
 
-  console.log("post请求来了");
+  //console.log("post请求来了");
   var form = new formidable.IncomingForm();
   form.parse(req, function (err, fields, files) {
 
@@ -67,13 +67,13 @@ router.post('', function(req,res,next) {
     let size = avatar.size;
     let name = avatar.name;
     let random=Math.floor(Math.random()*1000).toString()+(+new Date());
-    console.log(random);
-    console.log(+new Date());
+    //console.log(random);
+    //console.log(+new Date());
     name=random+name;
     let newPath=path.join(__dirname,'images',name);
-    console.log(newPath);
+    //console.log(newPath);
     fs.rename(tmpPath,newPath,function(){
-    console.log("保存成功");
+    //console.log("保存成功");
   })
 
 
