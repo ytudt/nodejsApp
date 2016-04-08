@@ -8,7 +8,7 @@ angular.module('set.controller',['set.service'])
 
   //读取头像信息
   if(localStorage["touxiang"]){
-    alert(1);
+    //alert(1);
     var image = document.getElementById('touxiang');
     image.src = "data:image/jpeg;base64," + localStorage["touxiang"];
   }
