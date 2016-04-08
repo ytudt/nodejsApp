@@ -21,14 +21,16 @@
 }
 
 #register tr {
-  margin: 10px;
+  margin: 10px 0;
 }
 #register  label {
   display: block;
-  margin: 10px;
+  margin: 10px 0;
 }
 #register input{
   display: inline-block;
   border: 1px solid #ccc;
-  margin: 10px;
+  margin: 10px 5px;
+  width: 120px;
+  height: 25px;
 }

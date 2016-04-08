@@ -25,7 +25,7 @@ angular.module('register.controller',['register.service'])
       $('#register_form input[type=password]:eq(1)').next().html('两次密码不同');
       return ;
     }
-   
+
     //if(/^[a-zA-Z]{1}([a-zA-Z0-9]|[._]){5,17}$/.test($('#register_form input[type=text]').val())){
     //  console.log(111);
     //}else {

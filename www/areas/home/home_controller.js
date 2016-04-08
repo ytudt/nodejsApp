@@ -57,7 +57,8 @@ angular.module('home.controller',['home.service'])
     // 一个精心制作的自定义弹窗
     var myPopup = $ionicPopup.show({
       template:'<form>' +
-      '用户名<input type="text" >'+
+      '用户名<input type="text" id="logInUsename">'+
+        '<span></span>'+
       '密码<input type="password" >'+
       '</form>'
       ,
@@ -68,15 +69,17 @@ angular.module('home.controller',['home.service'])
           text: '<b>登录</b>',
           type: 'button-positive',
           onTap: function(e) {
-            var username = $('form input[type=text]').val();
-            var pssword= $('form input[type=password]').val();
-            var message='username='+username+'&password='+pssword;
+            //var username = $('form input[type=text]').val();
+            var username = $('#logInUsename').val();
+            var password= $('form input[type=password]').val();
+            var message='username='+username+'&password='+password;
+            $('#test').html(username);
             var promise = HomeFty.doLogin(message);
             promise.then(
               function (result) {
                 if(result!=null){
                   if(result.code===1){
-                    console.log('登录成功');
+                    //console.log('登录成功');
                     $scope.isLogin=true;
                     localStorage.setItem('isLogin',true);
 
@@ -93,7 +96,7 @@ angular.module('home.controller',['home.service'])
               }
             ).finally(function () {
               //停止广播ion-refresher
-              $scope.$broadcast('scroll.refreshComplete');
+              //$scope.$broadcast('scroll.refreshComplete');
             });
 
           }

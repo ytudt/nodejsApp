@@ -22,7 +22,7 @@ angular.module('home.service',[])
 
     },
     doLogin: function (message) {
-      console.log(message);
+      //console.log(message);
       var obj_goodsListData = []
       var deferred = $q.defer();
       var url=GlobalVariable.SERVER_PATH+"?text=doLogin&"+message+"&callback=JSON_CALLBACK";
@@ -30,12 +30,12 @@ angular.module('home.service',[])
 
         obj_goodsListData=data;
         deferred.resolve(obj_goodsListData);
-        console.log(data);
+        //console.log(data);
 
       })
       return deferred.promise;
 
-      //console.log(1);
+
 
     },
   };

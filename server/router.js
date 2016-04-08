@@ -37,6 +37,7 @@ router.get('/', function(req,res,next){
       //console.log(req.query);
       break;
     case 'doLogin':
+      console.log(req.query);
       user.doLogin(req, res, next);
       break;
     case 'doWrite':

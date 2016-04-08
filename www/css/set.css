@@ -1,0 +1,18 @@
+/*#touxiang {*/
+  /**/
+/*}*/
+#info{
+  line-height: 40px;
+  /*text-align: center;*/
+}
+#info {
+  /*vertical-align: middle;*/
+}
+#info span {
+  /*display: inline-block;*/
+  /*height: 100%;*/
+  /*line-height: 60px;*/
+  /*text-align: center;*/
+  position: relative;
+  bottom: 10px;
+}

@@ -42,31 +42,42 @@ exports.doRgister=function(req, res, next){
 
 exports.doLogin=function(req, res, next){
   let username=req.query.username||'';
-  let password=req.query.password||0;
-  console.log(password);
+  let password=req.query.password||'0';
+
+  //console.log(password);
   db.query('SELECT * FROM users WHERE username=?'
     , [ username]
     , function (err, result) {
-      //console.log(result[0]);
+      //console.log(result);
       let registerMes={};
-      if (err) {
+      if (err||!result) {
         registerMes={
           code:0,
           mes:'err'
         }
         var str =  req.query.callback + '(' + JSON.stringify(registerMes) + ')';//jsonp
         res.end(str);
+        return ;
         throw err;
       }
-      if (password===result[0].password) {
+      //console.log(password);
+      //console.log(result);
+      result[0].password=result[0].password||0;
+      if (password!==result[0].password) {
         //req.session.user = result[0];
         registerMes={
-          code:1,
-          mes:'success'
+          code:0,
+          mes:'error'
         }
         var str =  req.query.callback + '(' + JSON.stringify(registerMes) + ')';//jsonp
         res.end(str);
       }
+      registerMes={
+        code:1,
+        mes:'success'
+      }
+      var str =  req.query.callback + '(' + JSON.stringify(registerMes) + ')';//jsonp
+      res.end(str);
 
     });
 }

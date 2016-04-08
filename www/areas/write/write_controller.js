@@ -16,17 +16,13 @@ angular.module('write.controller',['write.service'])
 
       var $form = $('#article_form');
       var message=$form.serialize();
-      //console.log($form);
-      //console.log(message);
-      //var message=formData;
       var promise = WriteFty.doWrite(message);
       promise.then(
         function (result) {
-          //console.log(result);
           if(result!=null){
             if(result.code===1){
-              console.log("success");
-              //$state.go('tab.home');
+              $state.go('tab.home');
+
             }
             $scope.article=result[0];
 
