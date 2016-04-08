@@ -1,6 +1,6 @@
 // 入口文件
 var nodeMessage={};
-angular.module('starter', ['ionic','route','global','config','indexdb'])
+angular.module('starter', ['ionic','ngCordova','route','global','config','indexdb'])
 
   .run(function($ionicPlatform) {
 

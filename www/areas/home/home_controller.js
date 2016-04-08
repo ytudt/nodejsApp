@@ -15,38 +15,40 @@ angular.module('home.controller',['home.service'])
   $scope.obj_articleCount = {
     count: "0"
   }
+
   $scope.$on('$ionicView.beforeEnter', function (e) {
     IndexdbJs.getAll("articleTable",function(data){
-      //for(var i =0;i<data.length;i++){
-      //  $scope.obj_cartCount.count=parseInt($scope.obj_cartCount.count)+parseInt(data[i].number);
         $scope.obj_articleCount.count=data.length;
-        //console.log(data.length);
-      //}
 
     },null)
   });
 
-  var promise = HomeFty.showHome();
-  promise.then(
-    function (result) {
-      if(result!=null){
 
-        $scope.items=result;
-        //console.log(result);
-        //$scope.$apply();
+  function showHome(){
+    var promise = HomeFty.showHome();
+    promise.then(
+      function (result) {
+        if(result!=null){
+
+          $scope.items=result;
+          //console.log(result);
+          //$scope.$apply();
 
 
-      }else{
-        $scope.pms_isMoreItemsAvailable=false;
+        }else{
+          $scope.pms_isMoreItemsAvailable=false;
+        }
+      },
+      function (reason) {
+        alert(reason);
       }
-    },
-    function (reason) {
-      alert(reason);
-    }
-  ).finally(function () {
-    //停止广播ion-refresher
-    $scope.$broadcast('scroll.refreshComplete');
-  });
+    ).finally(function () {
+      //停止广播ion-refresher
+      $scope.$broadcast('scroll.refreshComplete');
+    });
+  }
+  showHome();
+
 
   //显示登录页面
   $scope.showPopup = function() {
@@ -68,23 +70,16 @@ angular.module('home.controller',['home.service'])
           onTap: function(e) {
             var username = $('form input[type=text]').val();
             var pssword= $('form input[type=password]').val();
-            //var message=$form.serialize();
-            //console.log( username );
             var message='username='+username+'&password='+pssword;
-            //console.log( message );
             var promise = HomeFty.doLogin(message);
             promise.then(
               function (result) {
-                //console.log(result);
                 if(result!=null){
                   if(result.code===1){
-                    //console.log('登录成功');
+                    console.log('登录成功');
                     $scope.isLogin=true;
                     localStorage.setItem('isLogin',true);
 
-
-                    //GlobalVariable.ISLOGIN=true;
-                    //$scope.isLogin=GlobalVariable.ISLOGIN;
                     $state.go('tab.home');
                   }
                   $scope.article=result[0];
@@ -107,41 +102,30 @@ angular.module('home.controller',['home.service'])
       ]
     });
 
-    //登录
-
-    //myPopup.then(function(res) {
-    //  //console.log('Tapped!', res);
-    //});
-    //$timeout(function() {
-    //  myPopup.close(); //由于某种原因3秒后关闭弹出
-    //}, 3000);
-
-    // 一个确认对话框
-    //$scope.showConfirm = function() {
-    //  var confirmPopup = $ionicPopup.confirm({
-    //    title: 'Consume Ice Cream',
-    //    template: 'Are you sure you want to eat this ice cream?'
-    //  });
-    //  confirmPopup.then(function(res) {
-    //    if(res) {
-    //      console.log('You are sure');
-    //    } else {
-    //      console.log('You are not sure');
-    //    }
-    //  });
-    //};
-
-    // 一个提示对话框
-    //$scope.showAlert = function() {
-    //  var alertPopup = $ionicPopup.alert({
-    //    title: 'Don\'t eat that!',
-    //    template: 'It might taste good'
-    //  });
-    //  alertPopup.then(function(res) {
-    //    console.log('Thank you for not eating my delicious ice cream cone');
-    //  });
-    //};
   };
+
+
+  //获取收藏的文章
+  $scope.myCollect=function(){
+    if(!localStorage.getItem('isLogin')){
+      return ;
+    }
+    IndexdbJs.getAll("articleTable",function(data){
+    
+      for(var i=0;i<data.length;i++){
+        data[i].time= data[i].time.substr(0,10);
+      }
+      $scope.items=data;
+
+      $scope.$apply();
+      }
+    )
+  }
+
+  //显示全部文章
+  $scope.getAllAiticles=function(){
+    showHome();
+  }
   //退出登录把isLogin
   $scope.exit=function(){
     //GlobalVariable.ISLOGIN=false;

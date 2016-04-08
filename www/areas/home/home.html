@@ -5,8 +5,10 @@
     <img src="img/logo.svg" alt="nodejs" width="90px" height="40px">
     <button class="button button-balanced " ng-click="showPopup ()" ng-hide="isLogin">登录</button>
     <!--<button class="button button-balanced " ng-click="exit ()" ng-show="isLogin">退出</button>-->
-    <button class="button button-balanced " ng-click="myCollect ()">我的收藏</button>
-    <span class="collecNum">{{obj_articleCount.count}}</span>
+    <button class="button button-balanced " ng-click="getAllAiticles()">全部</button>
+    <button class="button button-balanced " ng-click="myCollect()">我的收藏<span class="collecNum">{{obj_articleCount.count}}</span></button>
+    <button class="button button-balanced ion-ios-search-strong" ng-click="myCollect()"></button>
+
   </div>
 
   <ul class="has-header">

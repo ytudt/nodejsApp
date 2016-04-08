@@ -5,6 +5,10 @@
 
 angular.module('write.controller',['write.service'])
   .controller('WriteCtrl',function($scope,$window, $state,WriteFty){
+    if(localStorage.getItem('isLogin')!=='true'){
+      $state.go('tab.home');
+    }
+
     var btn = document.getElementById('btnWrite');
 
 

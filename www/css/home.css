@@ -12,12 +12,13 @@
   /*float: right;*/
   /*margin-right: 10px;*/
   position: relative;
-  left: 135px;
+  left: 56px;
   top:0;
   bottom: 0;
   background-color: transparent;
 }
 #home .collecNum{
+  display: inline-block;
   width: 16px;
   height: 16px;
   text-align: center;
@@ -25,8 +26,9 @@
   background-color: red;
   color: #fff;
   position: relative;
-  top:6px;
-  left: 128px;
+  line-height:16px;
+  /*top:6px;*/
+  /*left: 128px;*/
 }
 #home .has-header{
   position: relative;

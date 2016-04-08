@@ -28,6 +28,7 @@ exports.doRgister=function(req, res, next){
       }
 
       if (req.query && req.query.callback) {
+        //req.session.user = user;
      registerMes={
         code:1,
         mes:'success'
@@ -57,6 +58,7 @@ exports.doLogin=function(req, res, next){
       }
 
       if (req.query && req.query.callback&&req.query.password===result[0].password) {
+        req.session.user = result[0];
         registerMes={
           code:1,
           mes:'success'
