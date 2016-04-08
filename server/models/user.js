@@ -8,9 +8,9 @@
 const db=require('./db');
 const express=require('express')
 exports.doRgister=function(req, res, next){
-  let username=req.query.username;
-  let password=req.query.password;
-  let email=req.query.email;
+  let username=req.query.username||'';
+  let password=req.query.password||0;
+  let email=req.query.email||'';
 
 
   db.query(`INSERT INTO users VALUES(NULL,?,?,?)`
@@ -41,9 +41,11 @@ exports.doRgister=function(req, res, next){
 }
 
 exports.doLogin=function(req, res, next){
-  //console.log(1);
+  let username=req.query.username||'';
+  let password=req.query.password||0;
+  console.log(password);
   db.query('SELECT * FROM users WHERE username=?'
-    , [ req.query.username]
+    , [ username]
     , function (err, result) {
       //console.log(result[0]);
       let registerMes={};
@@ -56,9 +58,8 @@ exports.doLogin=function(req, res, next){
         res.end(str);
         throw err;
       }
-
-      if (req.query && req.query.callback&&req.query.password===result[0].password) {
-        req.session.user = result[0];
+      if (password===result[0].password) {
+        //req.session.user = result[0];
         registerMes={
           code:1,
           mes:'success'

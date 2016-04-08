@@ -111,7 +111,7 @@ angular.module('home.controller',['home.service'])
       return ;
     }
     IndexdbJs.getAll("articleTable",function(data){
-    
+
       for(var i=0;i<data.length;i++){
         data[i].time= data[i].time.substr(0,10);
       }
