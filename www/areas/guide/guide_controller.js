@@ -175,7 +175,28 @@ angular.module('guide.controller',['guide.service'])
     histogram.moveTo();
   });
 
+  var canvas = document.getElementById('star');
 
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  canvas.style.border = "1px solid #000";
+  var ctx = canvas.getContext('2d');
+  var option = {
+    canvasWidth: canvas.width,
+    canvasHeight: canvas.height,
+    fillStyle: '#ccc',
+    bgPicPath: 'img/enjoy.jpg',
+    bgPicWidth: canvas.width,
+    bgPicHeight: canvas.height,
+    bgPicX: 0,
+    bgPicY: 0,
+    starPath: 'img/star.png',
+    starNum: 60,
+    ctx: ctx,
+    canvas: canvas
+  }
+  var stars = new Stars(option);
+  stars.init();
   //跳转回首页
   document.getElementById("close").addEventListener("click",function(event){
 

@@ -1,4 +1,4 @@
-"use strict";
+﻿"use strict";
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -45,6 +45,6 @@ app.use(require('./router'));
   });
 //}
 
-app.listen(80,'192.168.43.49', function () {
+app.listen(80,'192.168.0.19', function () {
   console.log('server is running at port 3000');
 });
