@@ -41,10 +41,10 @@ app.use(require('./router'));
 // 开发环境错误处理中间件
 //if(config.debug){
   app.use(function (err, req, res, next) {
-    res.send('糟了，服务器玩儿崩溃了'+err.message);
+    res.send('出问题了'+err.message);
   });
 //}
 
-app.listen(80,'192.168.0.19', function () {
+app.listen(80,'192.168.43.49', function () {
   console.log('server is running at port 3000');
 });

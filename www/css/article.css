@@ -27,3 +27,10 @@
   position: relative;
   top:44px;
 }
+#article h4 {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+#article p {
+  padding: 10px;
+}

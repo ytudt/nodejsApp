@@ -34,18 +34,23 @@
   /*left: 128px;*/
 }
 #home .has-header{
-  position: relative;
-  top:44px;
+  /*position: relative;*/
+  /*top:44px;*/
 }
 #home .articleLis{
   margin-top: 20px;
   border-bottom: 1px solid #ccc;
 }
-#home .writeTime{
-  float: right;
-  margin-right: 5px;
-}
+
 #home .articleTitle{
+  font-size: 18px;
+  color: #000;
   margin-left: 5px;
   text-decoration: none;
+}
+#home .writeTime{
+  color:#aaa;
+  font-size: 12px;
+  float: right;
+  margin-right: 5px;
 }

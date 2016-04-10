@@ -1,6 +1,6 @@
 <ion-view id="home" view-title="home" cache-view="false">
   <!--头部搜索栏-->
-
+<ion-header-bar>
   <div class="bar bar-header bar-dark">
     <img src="img/logo.svg" alt="nodejs" width="90px" height="40px">
     <button class="button button-balanced " ng-click="showPopup ()" ng-hide="isLogin">登录</button>
@@ -8,14 +8,18 @@
     <button class="button button-balanced " ng-click="getAllAiticles()">全部</button>
     <button class="button button-balanced " ng-click="myCollect()">我的收藏<span class="collecNum">{{obj_articleCount.count}}</span></button>
     <button class="button button-balanced ion-ios-search-strong" ng-click="myCollect()"></button>
-
   </div>
+</ion-header-bar>
 
-  <ul class="has-header">
-    <li class="articleLis" ng-repeat="item in items">
-      <a class="articleTitle" ui-sref="article({articleNumber:{{item.id}}})" >{{item.title}}</a>
-      <span class="writeTime">{{item.time}}</span>
-    </li>
-  </ul>
+  <!--<ion-content class="scroll-content ionic-scroll scroll-content-false  has-tabs" >-->
+  <ion-content class="scroll-content ionic-scroll scroll-content-false  has-tabs" >
+    <ul class="has-header">
+      <li class="articleLis" ng-repeat="item in items">
+        <a class="articleTitle" ui-sref="article({articleNumber:{{item.id}}})" >{{item.title}}</a>
+        <span class="writeTime">{{item.time}}</span>
+      </li>
+    </ul>
+  </ion-content>
+
 </ion-view>
 

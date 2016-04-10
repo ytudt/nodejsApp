@@ -4,7 +4,7 @@
 // 全局变量文件
 angular.module('global', [])
   .constant("GlobalVariable",{
-    'SERVER_PATH':'http://192.168.0.19:80',
+    'SERVER_PATH':'http://192.168.43.49:80',
     'VERSION':"1.2.1",
     'ISLOGIN':''
   })

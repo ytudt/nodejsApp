@@ -16,10 +16,6 @@ angular.module('article.service', [])
         return deferred.promise;
 
 
-
-
-        //console.log(1);
-
       },
     };
   });
