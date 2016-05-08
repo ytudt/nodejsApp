@@ -8,36 +8,27 @@ angular.module('home.service',[])
     showHome: function () {
       var obj_goodsListData = []
       var deferred = $q.defer();
-      var url=GlobalVariable.SERVER_PATH+"?text=showHome&callback=JSON_CALLBACK";
-      $http.jsonp(url).success(function(data,status,headers,config){
-
+      // var url=GlobalVariable.SERVER_PATH+"?text=showHome&callback=JSON_CALLBACK";
+      // $http.jsonp(url).success(function(data,status,headers,config){
+      var url=GlobalVariable.SERVER_PATH+"/showHome";
+      $http.get(url).success(function(data,status,headers,config){
         obj_goodsListData=data;
         deferred.resolve(obj_goodsListData);
-        //console.log(data);
-
       })
       return deferred.promise;
-
-      //console.log(1);
 
     },
     doLogin: function (message) {
-      //console.log(message);
       var obj_goodsListData = []
       var deferred = $q.defer();
-      var url=GlobalVariable.SERVER_PATH+"?text=doLogin&"+message+"&callback=JSON_CALLBACK";
-      $http.jsonp(url).success(function(data,status,headers,config){
-
-        obj_goodsListData=data;
-        deferred.resolve(obj_goodsListData);
-        //console.log(data);
-
+      var url=GlobalVariable.SERVER_PATH+"/doLogin?"+message;
+      // $http.jsonp(url).success(function(data,status,headers,config){
+      $http.get(url).success(function(data,status,headers,config){
+        // obj_goodsListData=data;
+        console.log(data);
+        deferred.resolve(data);
       })
       return deferred.promise;
-
-
-
     },
   };
-
 })

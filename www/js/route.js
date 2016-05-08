@@ -9,6 +9,7 @@
 angular.module('route', ['guide.route','tab_route','article.route','register.route'])
 
   .config(function($stateProvider, $urlRouterProvider) {
+
     localStorage.setItem('isFirst', '')
     if (window.localStorage) {
       if( !localStorage.getItem('isFirst')){

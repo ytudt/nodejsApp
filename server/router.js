@@ -20,98 +20,42 @@ const user= require('./models/user');
 
 
 //var data = {'name': 'jifeng', 'company': 'taobao'};
-router.get('/', function(req,res,next){
-  //console.log(1);
-
-  let parameter=req.query.text;
-  //console.log(parameter);
-  switch(parameter){
-    case 'showHome':
-     articleController.showHome(req, res, next);
-      break;
-    case 'showArticle':
-      articleController.showArticle(req, res, next);
-      break;
-    case 'doRegister' :
-      user.doRgister(req, res, next);
-      //console.log(req.query);
-      break;
-    case 'doLogin':
-      console.log(req.query);
-      user.doLogin(req, res, next);
-      break;
-    case 'doWrite':
-      //console.log(1);
-      articleController.doWrite(req, res, next);
-      break;
+// router.get('/', function(req,res,next){
+//   let parameter=req.query.text;
+//   //console.log(parameter);
+//   switch(parameter){
+//     case 'showHome':
+//      articleController.showHome(req, res, next);
+//       break;
+//     case 'showArticle':
+//       articleController.showArticle(req, res, next);
+//       break;
+//     case 'doRegister' :
+//       user.doRgister(req, res, next);
+//       //console.log(req.query);
+//       break;
+//     case 'doLogin':
+//       console.log(req.query);
+//       user.doLogin(req, res, next);
+//       break;
+//     case 'doWrite':
+//       //console.log(1);
+//       articleController.doWrite(req, res, next);
+//       break;
 
 
-  }
+//   }
 
-}); // 获取首页
-router.post('', function(req,res,next) {
+// }); // 获取首页
 
-  //console.log("post请求来了");
-  var form = new formidable.IncomingForm();
-  form.parse(req, function (err, fields, files) {
-
-    if (err) {
-      return res.json({
-        code: '0',
-        msg: 'failed'
-      });
-    }
-
-    let avatar = files.upload_file;
-    let tmpPath = avatar.path;
-    let size = avatar.size;
-    let name = avatar.name;
-    let random=Math.floor(Math.random()*1000).toString()+(+new Date());
-    //console.log(random);
-    //console.log(+new Date());
-    name=random+name;
-    let newPath=path.join(__dirname,'images',name);
-    //console.log(newPath);
-    fs.rename(tmpPath,newPath,function(){
-    //console.log("保存成功");
-  })
+router.get('/showHome', articleController.showHome);
+router.get('/doRegister', user.doRgister);
+router.get('/doLogin', user.doLogin);
+router.get('/showArticle', articleController.showArticle);
 
 
-    //  fs.rename(tmpPath, newPath, function () {
-    //
-    //    // 将头像路径更新到数据库中
-    //
-    //
-    //    // 将该图片的请求路径响应给客户端就行了
-    //
-    //    // /uploads/path.basename(newPath)
-    //
-    //    gm(newPath)
-    //      .resize(100, 100, '!')
-    //      .write(newPath, function (err) {
-    //        if (err) {
-    //          return next(err);
-    //        }
-    //        let uid = req.session.user.id;
-    //        User.updateAvatarById(path.basename(newPath), uid, function (err, result) {
-    //          if (err) {
-    //            return next(err);
-    //          }
-    //          if (result.affectedRows > 0) {
-    //            res.json({
-    //              code: '1',
-    //              msg: `/uploads/avatar/${path.basename(newPath)}`
-    //            });
-    //          }
-    //        });
-    //      });
-    //  });
-    //});
+router.post('/doWrite', articleController.doWrite);
 
-    console.log('post请求来了');
-  }); // 获取首页
-
-});
 
 //function checkLogin(req, res, next) {
 //  // 权限校验，已经登录的用户，就不要再访问这个页面了，直接跳转到首页就行了

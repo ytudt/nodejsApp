@@ -11,15 +11,12 @@ exports.showHome=function(req, res, next){
   db.query(`SELECT * FROM articles ORDER BY time DESC `,
     function (err, result) {
 
-
     if (err) {
       throw err;
     }
   result.map(a=>a.time = moment(a.time).startOf('second').fromNow());
-  if (req.query && req.query.callback) {
-    //console.log(req.query.callback)
-    var str =  req.query.callback + '(' + JSON.stringify(result) + ')';//jsonp
-    // console.log(str);
+  if (req.query) {
+    var str = JSON.stringify(result);//jsonp
     res.end(str);
   }
 
@@ -30,16 +27,11 @@ exports.showArticle=function(req, res, next){
       req.query.id
     ],
     function (err, result) {
-
-
       if (err) {
         throw err;
       }
-
-      if (req.query && req.query.callback) {
-        console.log(req.query.id)
-        var str =  req.query.callback + '(' + JSON.stringify(result) + ')';//jsonp
-         //console.log(str);
+      if (req.query) {
+        var str =JSON.stringify(result);//jsonp
         res.end(str);
       }
 
@@ -47,8 +39,10 @@ exports.showArticle=function(req, res, next){
 }
 
 exports.doWrite=function(req,res,next){
-  let title=req.query.title;
-  let content=req.query.content;
+
+  let title=req.body.title;
+  let content=req.body.content;
+
   //let date=new Date();
   let time = moment().format('YYYY-MM-DD HH:mm:ss');
 
@@ -58,22 +52,27 @@ exports.doWrite=function(req,res,next){
       //console.log(1);
       let registerMes={};
       if (err) {
-        registerMes={
+        // registerMes={
+        //   code:0,
+        //   mes:'err'
+        // }
+        // var str =  req.query.callback + '(' + JSON.stringify(registerMes) + ')';//jsonp
+        res.json({
           code:0,
           mes:'err'
-        }
-        var str =  req.query.callback + '(' + JSON.stringify(registerMes) + ')';//jsonp
-        res.end(str);
+        });
         throw err;
       }
-
-      if (req.query && req.query.callback) {
-        registerMes={
+      if (req.body.title) {
+        // registerMes={
+        //   code:1,
+        //   mes:'success'
+        // }
+        // var str =  req.query.callback + '(' + JSON.stringify(registerMes) + ')';//jsonp
+        res.json({
           code:1,
           mes:'success'
-        }
-        var str =  req.query.callback + '(' + JSON.stringify(registerMes) + ')';//jsonp
-        res.end(str);
+        });
       }
 
     });
