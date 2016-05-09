@@ -1,34 +1,29 @@
 <ion-view id="guide" view-title="导航页">
-
-  <div id="guideSlide" class="swiper-container">
-    <div class="swiper-wrapper">
-      <!--Slide 1-->
-      <div class="swiper-slide slider1" >
-        <img src="img/logo.png" alt="" width="50%" height="100%">
-        <h1>事件驱动</h1>
-        <p>异步非阻塞IO</p>
-      </div>
-      <div class="swiper-slide slider2">
-        <div id="demo"></div>
-        <h3>市场占有率遥遥领先</h3>
-      </div>
-      <div  class="swiper-slide slider3">
-
-        <canvas id="star"></canvas>
-        <div class="animate guide-show">
-          <button id='close' class="mui-btn mui-btn-warning mui-btn-outlined" ng-click="func_goHome()">enjoy it</button>
+    <div id="guideSlide" class="swiper-container">
+        <div class="swiper-wrapper">
+            <!--Slide 1-->
+            <div class="swiper-slide slider1">
+                <img src="img/logo.png" alt="" width="50%" height="100%">
+                <h1>事件驱动</h1>
+                <p>异步非阻塞IO</p>
+            </div>
+            <div class="swiper-slide slider2">
+                <div id="demo"></div>
+                <h3>市场占有率遥遥领先</h3>
+            </div>
+            <div class="swiper-slide slider3">
+                <canvas id="star"></canvas>
+                <div class="animate guide-show">
+                    <button id='close' class="mui-btn mui-btn-warning mui-btn-outlined" ng-click="func_goHome()">enjoy it</button>
+                </div>
+            </div>
         </div>
-
-      </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+        <!--&lt;!&ndash; 如果需要导航按钮 &ndash;&gt;-->
+        <!--<div class="swiper-button-prev"></div>-->
+        <!--<div class="swiper-button-next"></div>-->
+        <!-- 如果需要滚动条 -->
+        <!--<div class="swiper-scrollbar"></div>-->
     </div>
-    <!-- 如果需要分页器 -->
-    <div class="swiper-pagination"></div>
-
-    <!--&lt;!&ndash; 如果需要导航按钮 &ndash;&gt;-->
-    <!--<div class="swiper-button-prev"></div>-->
-    <!--<div class="swiper-button-next"></div>-->
-
-    <!-- 如果需要滚动条 -->
-    <!--<div class="swiper-scrollbar"></div>-->
-  </div>
 </ion-view>

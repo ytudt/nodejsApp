@@ -15,7 +15,7 @@
 }
 #guideSlide .slider1 .imgAnimate{
   -webkit-animation: run 2s forwards 1s;
-  animation: run 2s forwards 1s;
+  animation: run 2s forwards 0.1s;
 }
 #guideSlide .slider1 h1,
 #guideSlide .slider1 p{

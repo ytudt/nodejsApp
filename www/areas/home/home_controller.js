@@ -30,8 +30,6 @@ angular.module('home.controller', ['home.service'])
                     if (result != null) {
 
                         $scope.items = result;
-                        //console.log(result);
-                        //$scope.$apply();
 
 
                     } else {
